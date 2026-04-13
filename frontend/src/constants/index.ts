@@ -1,6 +1,7 @@
-"""
-Constants - Roles and Permissions
-"""
+/**
+ * Constants - Roles and Permissions
+ */
+
 
 export const ROLES = {
   ADMIN: 'admin',
@@ -77,3 +78,4 @@ export const PAYMENT_METHODS = {
   CHECK: 'check',
   ONLINE: 'online',
 } as const;
+

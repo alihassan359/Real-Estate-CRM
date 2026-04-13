@@ -23,7 +23,8 @@
     "baseUrl": ".",
     "paths": {
       "@/*": [
-        "./*"
+        "./*",
+        "./src/*"
       ]
     },
     "allowJs": true,
@@ -45,3 +46,5 @@
     "node_modules"
   ]
 }
+
+

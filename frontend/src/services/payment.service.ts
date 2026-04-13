@@ -1,6 +1,7 @@
-"""
-Payment Service - API Calls for Payments
-"""
+/**
+ * Payment Service - API Calls for Payments
+ */
+
 
 import { apiClient } from './apiClient';
 
@@ -56,3 +57,4 @@ export class PaymentService {
     return response.data;
   }
 }
+

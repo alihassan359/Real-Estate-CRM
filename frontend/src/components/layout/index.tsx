@@ -1,7 +1,7 @@
-"""
-Layout - Dashboard Main Layout
+/**
+ * Layout - Dashboard Main Layout
+ */
 
-"""
 
 'use client';
 
@@ -32,3 +32,4 @@ export const DashboardLayout: React.FC<LayoutProps> = ({ children }) => {
     </div>
   );
 };
+

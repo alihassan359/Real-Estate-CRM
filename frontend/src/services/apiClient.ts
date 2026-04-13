@@ -1,6 +1,7 @@
-"""
-API Client Configuration
-"""
+/**
+ * API Client Configuration
+ */
+
 
 import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
 import { useAuthStore } from '@/store/authStore';
@@ -66,3 +67,4 @@ class APIClient {
 }
 
 export const apiClient = new APIClient();
+

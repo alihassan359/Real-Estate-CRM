@@ -12,6 +12,7 @@ class Settings(BaseSettings):
     
     # Project settings
     PROJECT_NAME: str = "Real Estate CRM API"
+    VERSION: str = "1.0.0"
     ENVIRONMENT: str = os.getenv("ENVIRONMENT", "development")
     DEBUG: bool = ENVIRONMENT == "development"
     
@@ -24,6 +25,9 @@ class Settings(BaseSettings):
         "DATABASE_URL",
         "postgresql://postgres:postgres@localhost:5432/realestate_crm"
     )
+    DATABASE_ECHO: bool = ENVIRONMENT == "development"
+    DATABASE_POOL_SIZE: int = int(os.getenv("DATABASE_POOL_SIZE", 20))
+    DATABASE_POOL_RECYCLE: int = 3600
     
     # Redis settings
     REDIS_URL: str = os.getenv(
@@ -58,6 +62,11 @@ class Settings(BaseSettings):
     # Security settings
     ALGORITHM: str = "HS256"
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 60
+    
+    # Rate limiting settings
+    RATE_LIMIT_ENABLED: bool = True
+    RATE_LIMIT_REQUESTS: int = 100
+    RATE_LIMIT_WINDOW: int = 60  # seconds
     
     class Config:
         env_file = ".env"

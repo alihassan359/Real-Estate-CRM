@@ -1,6 +1,7 @@
-"""
-Project Service - API Calls for Real Estate Projects
-"""
+/**
+ * Project Service - API Calls for Real Estate Projects
+ */
+
 
 import { apiClient } from './apiClient';
 
@@ -53,3 +54,4 @@ export class ProjectService {
     await apiClient.delete(`/projects/${id}`);
   }
 }
+

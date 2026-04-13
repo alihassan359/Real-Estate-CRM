@@ -1,6 +1,7 @@
-"""
-Error Boundary Component - Catch and Handle Errors
-"""
+/**
+ * Error Boundary Component - Catch and Handle Errors
+ */
+
 
 'use client';
 
@@ -54,3 +55,4 @@ export class ErrorBoundary extends React.Component<Props, State> {
     return this.props.children;
   }
 }
+

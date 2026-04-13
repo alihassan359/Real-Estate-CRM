@@ -1,6 +1,7 @@
-"""
-Client Service - API Calls for Clients
-"""
+/**
+ * Client Service - API Calls for Clients
+ */
+
 
 import { apiClient } from './apiClient';
 
@@ -50,3 +51,4 @@ export class ClientService {
     await apiClient.delete(`/clients/${id}`);
   }
 }
+

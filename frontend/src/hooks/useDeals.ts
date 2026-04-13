@@ -1,6 +1,7 @@
-"""
-useDeals Hook - Custom Hook for Deal Management
-"""
+/**
+ * useDeals Hook - Custom Hook for Deal Management
+ */
+
 
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { DealService, CreateDealRequest } from '@/services/deal.service';
@@ -53,3 +54,4 @@ export function useDeleteDeal() {
     },
   });
 }
+

@@ -1,7 +1,8 @@
-"""
-Auth Store - Zustand Store for
+/**
+ * Auth Store - Zustand Store for
  Authentication State
-"""
+ */
+
 
 import { create } from 'zustand';
 import { jwtDecode } from 'jwt-decode';
@@ -82,3 +83,4 @@ export const useAuthStore = create<AuthState>((set, get) => ({
     return rolePermissions[user.role]?.includes(permission) ?? false;
   },
 }));
+

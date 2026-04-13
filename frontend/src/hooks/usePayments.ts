@@ -1,6 +1,7 @@
-"""
-usePayments Hook - Custom Hook for Payment Management
-"""
+/**
+ * usePayments Hook - Custom Hook for Payment Management
+ */
+
 
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { PaymentService, CreatePaymentRequest } from '@/services/payment.service';
@@ -37,3 +38,4 @@ export function usePendingPayments() {
     queryFn: () => PaymentService.getPendingPayments(),
   });
 }
+

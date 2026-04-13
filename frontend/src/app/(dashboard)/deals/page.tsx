@@ -1,6 +1,7 @@
-"""
-Deals Page - Deals Management
-"""
+/**
+ * Deals Page - Deals Management
+ */
+
 
 'use client';
 
@@ -34,3 +35,4 @@ export default function DealsPage() {
     </div>
   );
 }
+

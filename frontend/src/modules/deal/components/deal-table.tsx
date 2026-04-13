@@ -1,6 +1,7 @@
-"""
-Deal Table Component - Display Deals in Table Format
-"""
+/**
+ * Deal Table Component - Display Deals in Table Format
+ */
+
 
 'use client';
 
@@ -72,3 +73,4 @@ export const DealTable: React.FC = () => {
     </div>
   );
 };
+

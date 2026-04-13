@@ -1,6 +1,6 @@
-"""
-Providers - Client-side Providers (React Query, Zustand, etc.)
-"""
+/**
+ * Providers - Client-side Providers (React Query, Zustand, etc.)
+ */
 
 'use client';
 

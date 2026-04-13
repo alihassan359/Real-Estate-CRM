@@ -1,6 +1,7 @@
-"""
-Projects Page - Real Estate Projects Management
-"""
+/**
+ * Projects Page - Real Estate Projects Management
+ */
+
 
 'use client';
 
@@ -38,3 +39,4 @@ export default function ProjectsPage() {
     </div>
   );
 }
+

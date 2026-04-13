@@ -1,6 +1,7 @@
-"""
-Deal Form Component - Create/Edit Deal Form (Multi-Step)
-"""
+/**
+ * Deal Form Component - Create/Edit Deal Form (Multi-Step)
+ */
+
 
 'use client';
 
@@ -220,3 +221,4 @@ export const DealForm: React.FC<{ onSuccess?: () => void }> = ({ onSuccess }) =>
     </div>
   );
 };
+

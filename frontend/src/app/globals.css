@@ -1,6 +1,5 @@
-"""
-Globals CSS - Global Tailwind Styles
-"""
+/* Globals CSS - Global Tailwind Styles */
+
 
 @tailwind base;
 @tailwind components;
@@ -47,3 +46,4 @@ body {
 .animate-fade-in {
   animation: fadeIn 0.3s ease-in;
 }
+

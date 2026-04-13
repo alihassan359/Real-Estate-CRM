@@ -1,6 +1,7 @@
-"""
-Dashboard Page - Main Dashboard
-"""
+/**
+ * Dashboard Page - Main Dashboard
+ */
+
 
 'use client';
 
@@ -117,3 +118,4 @@ export default function DashboardPage() {
     </div>
   );
 }
+

@@ -1,6 +1,7 @@
-"""
-Clients Page - Client Management
-"""
+/**
+ * Clients Page - Client Management
+ */
+
 
 'use client';
 
@@ -38,3 +39,4 @@ export default function ClientsPage() {
     </div>
   );
 }
+

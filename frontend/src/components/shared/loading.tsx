@@ -1,6 +1,7 @@
-"""
-Shared Loading Spinner Component
-"""
+/**
+ * Shared Loading Spinner Component
+ */
+
 
 import React from 'react';
 
@@ -12,3 +13,4 @@ export const LoadingSpinner: React.FC<{ message?: string }> = ({ message = 'Load
     </div>
   );
 };
+

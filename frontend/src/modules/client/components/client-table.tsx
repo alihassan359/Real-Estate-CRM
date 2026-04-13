@@ -1,6 +1,7 @@
-"""
-Clients Table Component - Display Clients List
-"""
+/**
+ * Clients Table Component - Display Clients List
+ */
+
 
 'use client';
 
@@ -76,3 +77,4 @@ export const ClientTable: React.FC = () => {
     </div>
   );
 };
+

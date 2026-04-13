@@ -1,6 +1,7 @@
-"""
-Login Component - User Login Form
-"""
+/**
+ * Login Component - User Login Form
+ */
+
 
 'use client';
 
@@ -98,3 +99,4 @@ export const LoginForm: React.FC = () => {
     </div>
   );
 };
+

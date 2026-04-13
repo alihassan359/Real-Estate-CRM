@@ -1,6 +1,7 @@
-"""
-Tenant Store - Zustand Store for Multi-Tenant State
-"""
+/**
+ * Tenant Store - Zustand Store for Multi-Tenant State
+ */
+
 
 import { create } from 'zustand';
 
@@ -41,3 +42,4 @@ export const useTenantStore = create<TenantState>((set, get) => ({
     }
   },
 }));
+

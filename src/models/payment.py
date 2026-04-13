@@ -2,7 +2,7 @@
 Payment Model
 """
 
-from sqlalchemy import Column, String, Integer, ForeignKey, Decimal, DateTime, Text
+from sqlalchemy import Column, String, Integer, ForeignKey, Numeric, DateTime, Text
 from datetime import datetime
 
 from models.base import BaseModel
@@ -15,7 +15,7 @@ class Payment(BaseModel):
     payment_number = Column(String(50), unique=True, index=True)
     deal_id = Column(Integer, ForeignKey("deals.id"))
     client_id = Column(Integer, ForeignKey("clients.id"))
-    amount = Column(Decimal(12, 2))
+    amount = Column(Numeric(12, 2))
     payment_date = Column(DateTime, default=datetime.utcnow)
     due_date = Column(DateTime)
     payment_method = Column(String(50))  # bank_transfer, cash, check, online

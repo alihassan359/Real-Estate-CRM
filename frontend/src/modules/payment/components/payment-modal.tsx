@@ -1,6 +1,7 @@
-"""
-Payment Modal Component - Show Payment Form in Modal
-"""
+/**
+ * Payment Modal Component - Show Payment Form in Modal
+ */
+
 
 'use client';
 
@@ -155,3 +156,4 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose, dea
     </div>
   );
 };
+

@@ -1,6 +1,7 @@
-"""
-Custom useClients Hook - Fetch and Manage Clients
-"""
+/**
+ * Custom useClients Hook - Fetch and Manage Clients
+ */
+
 
 import { useQuery } from '@tanstack/react-query';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
@@ -54,3 +55,4 @@ export function useDeleteClient() {
     },
   });
 }
+

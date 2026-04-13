@@ -1,6 +1,7 @@
-"""
-Form Input Component - Reusable Form Field
-"""
+/**
+ * Form Input Component - Reusable Form Field
+ */
+
 
 'use client';
 
@@ -31,3 +32,4 @@ export const FormInput: React.FC<FormInputProps> = ({
     </div>
   );
 };
+

@@ -1,6 +1,7 @@
-"""
-Utility Functions - Formatting and Helpers
-"""
+/**
+ * Utility Functions - Formatting and Helpers
+ */
+
 
 export const formatCurrency = (amount: number): string => {
   return new Intl.NumberFormat('en-US', {
@@ -33,3 +34,4 @@ export const truncateText = (text: string, length: number = 50): string => {
 export const generateId = (): string => {
   return `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
 };
+

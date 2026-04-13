@@ -1,6 +1,7 @@
-"""
-Shared Button Component
-"""
+/**
+ * Shared Button Component
+ */
+
 
 import React from 'react';
 
@@ -39,3 +40,4 @@ export const Button: React.FC<ButtonProps> = ({
     </button>
   );
 };
+

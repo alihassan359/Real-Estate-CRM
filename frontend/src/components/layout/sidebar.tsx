@@ -1,6 +1,7 @@
-"""
-Sidebar Component - Navigation Sidebar
-"""
+/**
+ * Sidebar Component - Navigation Sidebar
+ */
+
 
 'use client';
 
@@ -82,3 +83,4 @@ export const Sidebar: React.FC = () => {
     </div>
   );
 };
+

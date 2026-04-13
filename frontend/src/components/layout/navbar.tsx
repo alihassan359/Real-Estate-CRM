@@ -1,6 +1,7 @@
-"""
-Navbar Component - Top Navigation Bar
-"""
+/**
+ * Navbar Component - Top Navigation Bar
+ */
+
 
 'use client';
 
@@ -35,3 +36,4 @@ export const Navbar: React.FC = () => {
     </div>
   );
 };
+

@@ -1,6 +1,7 @@
-"""
-Settings Page
-"""
+/**
+ * Settings Page
+ */
+
 
 'use client';
 
@@ -142,3 +143,4 @@ export default function SettingsPage() {
     </div>
   );
 }
+

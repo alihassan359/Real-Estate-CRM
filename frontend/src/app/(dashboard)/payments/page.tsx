@@ -1,6 +1,7 @@
-"""
-Payments Page - Payment Management
-"""
+/**
+ * Payments Page - Payment Management
+ */
+
 
 'use client';
 
@@ -34,3 +35,4 @@ export default function PaymentsPage() {
     </div>
   );
 }
+

@@ -1,6 +1,7 @@
-"""
-Deal Service - API Calls for Deals/Contracts
-"""
+/**
+ * Deal Service - API Calls for Deals/Contracts
+ */
+
 
 import { apiClient } from './apiClient';
 
@@ -54,3 +55,4 @@ export class DealService {
     await apiClient.delete(`/deals/${id}`);
   }
 }
+

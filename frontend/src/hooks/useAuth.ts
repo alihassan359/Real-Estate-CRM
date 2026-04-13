@@ -1,6 +1,7 @@
-"""
-useAuth Hook - Custom Hook for Authentication
-"""
+/**
+ * useAuth Hook - Custom Hook for Authentication
+ */
+
 
 import { useCallback } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
@@ -58,3 +59,4 @@ export function useAuth() {
     logout,
   };
 }
+

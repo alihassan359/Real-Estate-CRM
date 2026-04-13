@@ -1,6 +1,7 @@
-"""
-Reports Page - Analytics & Reports
-"""
+/**
+ * Reports Page - Analytics & Reports
+ */
+
 
 'use client';
 
@@ -55,3 +56,4 @@ export default function ReportsPage() {
     </div>
   );
 }
+

@@ -1,6 +1,7 @@
-"""
-Register Component - User Signup Form
-"""
+/**
+ * Register Component - User Signup Form
+ */
+
 
 'use client';
 
@@ -175,3 +176,4 @@ export const RegisterForm: React.FC = () => {
     </div>
   );
 };
+

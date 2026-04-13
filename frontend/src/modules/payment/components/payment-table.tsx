@@ -1,6 +1,7 @@
-"""
-Payment Table Component - Display Payments List
-"""
+/**
+ * Payment Table Component - Display Payments List
+ */
+
 
 'use client';
 
@@ -88,3 +89,4 @@ export const PaymentTable: React.FC = () => {
     </div>
   );
 };
+

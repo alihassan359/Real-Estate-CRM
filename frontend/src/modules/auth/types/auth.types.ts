@@ -1,6 +1,7 @@
-"""
-Auth Types - Authentication-related Types
-"""
+/**
+ * Auth Types - Authentication-related Types
+ */
+
 
 export interface AuthTypes {
   User: {
@@ -21,3 +22,4 @@ export interface AuthTypes {
     lastName: string;
   };
 }
+

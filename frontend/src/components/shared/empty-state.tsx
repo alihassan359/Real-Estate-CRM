@@ -1,6 +1,7 @@
-"""
-Empty State Component - Show Empty State Message
-"""
+/**
+ * Empty State Component - Show Empty State Message
+ */
+
 
 import React from 'react';
 import { Package } from 'lucide-react';
@@ -37,3 +38,4 @@ export const EmptyState: React.FC<EmptyStateProps> = ({
     </div>
   );
 };
+

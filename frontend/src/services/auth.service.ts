@@ -1,6 +1,7 @@
-"""
-Auth Service - API Calls for Authentication
-"""
+/**
+ * Auth Service - API Calls for Authentication
+ */
+
 
 import { apiClient } from './apiClient';
 
@@ -58,3 +59,4 @@ export class AuthService {
     return response.data;
   }
 }
+

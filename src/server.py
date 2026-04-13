@@ -11,6 +11,7 @@ import uvicorn
 
 from config import settings
 from api.router import router as api_router
+from database.session import ensure_auth_tables
 
 # Configure logging
 logger = logging.getLogger(__name__)
@@ -20,6 +21,7 @@ logger = logging.getLogger(__name__)
 async def lifespan(app: FastAPI):
     """Application lifespan - startup and shutdown events"""
     # Startup
+    ensure_auth_tables()
     logger.info("🚀 Starting Real Estate CRM API")
     logger.info(f"Environment: {settings.ENVIRONMENT}")
     yield

@@ -1,6 +1,7 @@
-"""
-Types - Core Application Types
-"""
+/**
+ * Types - Core Application Types
+ */
+
 
 export interface ApiResponse<T = unknown> {
   success: boolean;
@@ -29,3 +30,4 @@ export interface Auth {
   refreshToken: string;
   user: User;
 }
+

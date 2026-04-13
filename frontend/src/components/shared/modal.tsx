@@ -1,6 +1,7 @@
-"""
-Modal Component - Reusable Modal Wrapper
-"""
+/**
+ * Modal Component - Reusable Modal Wrapper
+ */
+
 
 'use client';
 
@@ -39,3 +40,4 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children, 
     </div>
   );
 };
+
