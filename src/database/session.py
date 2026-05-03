@@ -38,4 +38,14 @@ def get_db():
 
 def ensure_auth_tables() -> None:
     """Create auth-related support tables if they do not already exist."""
-    Base.metadata.create_all(bind=engine, tables=[UserMFA.__table__])
+    from models.tenant import Tenant
+    from models.user import User
+    
+    # Create tables in dependency order:
+    # 1. Tenant (no dependencies)
+    # 2. User (depends on Tenant)
+    # 3. UserMFA (depends on User)
+    Base.metadata.create_all(
+        bind=engine,
+        tables=[Tenant.__table__, User.__table__, UserMFA.__table__]
+    )
