@@ -7,7 +7,7 @@ from sqlalchemy.orm import Session
 
 from database.session import get_db
 from middlewares.auth_middleware import get_current_user
-from middlewares.rbac_middleware import check_super_admin, check_permission
+from middlewares.rbac_middleware import check_super_admin, check_platform_admin, check_permission
 from models.user import User
 from models.tenant import Tenant, TenantStatus
 from services.tenant.service import TenantService
@@ -45,9 +45,9 @@ router = APIRouter(prefix="/tenants", tags=["Tenants"])
 async def create_tenant(
     request: TenantCreateRequest,
     db: Session = Depends(get_db),
-    current_user: User = Depends(check_super_admin),
+    current_user: User = Depends(check_platform_admin),
 ):
-    """Create a new tenant (Super Admin only)"""
+    """Create a new tenant (Platform Admin or Super Admin only)"""
     try:
         # Create tenant
         tenant = TenantService.create_tenant(

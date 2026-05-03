@@ -16,6 +16,7 @@ export function useAuth() {
   const loginMutation = useMutation({
     mutationFn: (credentials: LoginRequest) => AuthService.login(credentials),
     onSuccess: (data) => {
+      // data.data contains { accessToken, refreshToken, user }
       const { accessToken, user: userData } = data.data;
       setToken(accessToken);
       setUser(userData as any);

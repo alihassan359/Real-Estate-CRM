@@ -31,20 +31,24 @@ export interface AuthState {
   hasPermission: (permission: string) => boolean;
 }
 
-export const useAuthStore = create<AuthState>((set, get) => ({
-  user: null,
-  token: typeof window !== 'undefined' ? localStorage.getItem('token') : null,
-  isAuthenticated: false,
-  isLoading: false,
-
-  setUser: (user) => set({ user, isAuthenticated: true }),
+export const useAuthStore = create<AuthState>((set, get) => {
+  // Initialize token from localStorage
+  const initialToken = typeof window !== 'undefined' ? localStorage.getItem('token') : null;
   
-  setToken: (token) => {
-    if (typeof window !== 'undefined') {
-      localStorage.setItem('token', token);
-    }
-    set({ token, isAuthenticated: true });
-  },
+  return {
+    user: null,
+    token: initialToken,
+    isAuthenticated: !!initialToken,
+    isLoading: false,
+
+    setUser: (user) => set({ user, isAuthenticated: true }),
+    
+    setToken: (token) => {
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('token', token);
+      }
+      set({ token, isAuthenticated: true });
+    },
 
   logout: () => {
     if (typeof window !== 'undefined') {
@@ -82,5 +86,6 @@ export const useAuthStore = create<AuthState>((set, get) => ({
 
     return rolePermissions[user.role]?.includes(permission) ?? false;
   },
-}));
+  };
+});
 
