@@ -17,10 +17,6 @@ const nextConfig = {
     maxInactiveAge: 15 * 1000, // 15 seconds
     pagesBufferLength: 2,
   },
-  // Optimization for low-budget systems
-  experimental: {
-    cacheMaxMemorySize: 10 * 1024 * 1024, // 10MB cache
-  },
   // Webpack optimization for minimal bundle
   webpack: (config, { isServer }) => {
     if (!isServer) {

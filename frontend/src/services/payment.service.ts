@@ -58,3 +58,6 @@ export class PaymentService {
   }
 }
 
+// Export instance for compatibility
+export const paymentService = PaymentService;
+

@@ -21,9 +21,10 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose, dea
   const createPayment = useCreatePayment();
   const [formData, setFormData] = useState({
     dealId: dealId || '',
+    clientId: '',
     amount: '',
     paymentMethod: 'bank_transfer',
-    paymentDate: new Date().toISOString().split('T')[0],
+    dueDate: new Date().toISOString().split('T')[0],
     notes: '',
   });
 
@@ -39,15 +40,19 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose, dea
     e.preventDefault();
     try {
       await createPayment.mutateAsync({
-        ...formData,
+        dealId: formData.dealId,
+        clientId: formData.clientId,
         amount: Number(formData.amount),
+        dueDate: formData.dueDate,
+        paymentMethod: formData.paymentMethod,
       });
       onClose();
       setFormData({
         dealId: dealId || '',
+        clientId: '',
         amount: '',
         paymentMethod: 'bank_transfer',
-        paymentDate: new Date().toISOString().split('T')[0],
+        dueDate: new Date().toISOString().split('T')[0],
         notes: '',
       });
     } catch (error) {
@@ -82,6 +87,19 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose, dea
           </div>
 
           <div>
+            <label className="block text-sm font-medium text-gray-700">Client ID</label>
+            <input
+              type="text"
+              name="clientId"
+              value={formData.clientId}
+              onChange={handleChange}
+              required
+              className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+              placeholder="Select client"
+            />
+          </div>
+
+          <div>
             <label className="block text-sm font-medium text-gray-700">Amount</label>
             <input
               type="number"
@@ -112,11 +130,11 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose, dea
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700">Payment Date</label>
+            <label className="block text-sm font-medium text-gray-700">Due Date</label>
             <input
               type="date"
-              name="paymentDate"
-              value={formData.paymentDate}
+              name="dueDate"
+              value={formData.dueDate}
               onChange={handleChange}
               required
               className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"

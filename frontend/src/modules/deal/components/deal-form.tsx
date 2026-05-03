@@ -10,12 +10,14 @@ import { useCreateDeal } from '@/hooks/useDeals';
 import { useAuthStore } from '@/store/authStore';
 
 interface DealFormData {
-  projectId: string;
-  plotId: string;
-  clientId: string;
-  agreementPrice: number;
-  downPayment: number;
-  paymentPlan: string;
+  client_id: number;
+  project_id: number;
+  plot_id?: number;
+  agreement_date: string;
+  agreement_price: number;
+  down_payment: number;
+  payment_plan: string;
+  commission_percentage?: number;
 }
 
 export const DealForm: React.FC<{ onSuccess?: () => void }> = ({ onSuccess }) => {
@@ -23,7 +25,7 @@ export const DealForm: React.FC<{ onSuccess?: () => void }> = ({ onSuccess }) =>
   const { hasPermission } = useAuthStore();
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState<Partial<DealFormData>>({
-    paymentPlan: 'monthly',
+    payment_plan: 'monthly',
   });
 
   if (!hasPermission('create_deal')) {
@@ -47,7 +49,7 @@ export const DealForm: React.FC<{ onSuccess?: () => void }> = ({ onSuccess }) =>
     try {
       await createDeal.mutateAsync(formData as DealFormData);
       onSuccess?.();
-      setFormData({ paymentPlan: 'monthly' });
+      setFormData({ payment_plan: 'monthly' });
       setStep(1);
     } catch (error) {
       console.error('Error creating deal:', error);
@@ -91,8 +93,8 @@ export const DealForm: React.FC<{ onSuccess?: () => void }> = ({ onSuccess }) =>
             <div>
               <label className="block text-sm font-medium text-gray-700">Project</label>
               <select
-                name="projectId"
-                value={formData.projectId || ''}
+                name="project_id"
+                value={formData.project_id || ''}
                 onChange={handleInputChange}
                 required
                 className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg"
@@ -106,8 +108,8 @@ export const DealForm: React.FC<{ onSuccess?: () => void }> = ({ onSuccess }) =>
               <label className="block text-sm font-medium text-gray-700">Plot Number</label>
               <input
                 type="text"
-                name="plotId"
-                value={formData.plotId || ''}
+                name="plot_id"
+                value={formData.plot_id || ''}
                 onChange={handleInputChange}
                 required
                 placeholder="Enter plot number"
@@ -123,8 +125,8 @@ export const DealForm: React.FC<{ onSuccess?: () => void }> = ({ onSuccess }) =>
             <label className="block text-sm font-medium text-gray-700">Client ID</label>
             <input
               type="text"
-              name="clientId"
-              value={formData.clientId || ''}
+              name="client_id"
+              value={formData.client_id || ''}
               onChange={handleInputChange}
               required
               placeholder="Select or enter client"
@@ -140,8 +142,8 @@ export const DealForm: React.FC<{ onSuccess?: () => void }> = ({ onSuccess }) =>
               <label className="block text-sm font-medium text-gray-700">Agreement Price</label>
               <input
                 type="number"
-                name="agreementPrice"
-                value={formData.agreementPrice || ''}
+                name="agreement_price"
+                value={formData.agreement_price || ''}
                 onChange={handleInputChange}
                 required
                 placeholder="0.00"
@@ -152,8 +154,8 @@ export const DealForm: React.FC<{ onSuccess?: () => void }> = ({ onSuccess }) =>
               <label className="block text-sm font-medium text-gray-700">Down Payment</label>
               <input
                 type="number"
-                name="downPayment"
-                value={formData.downPayment || ''}
+                name="down_payment"
+                value={formData.down_payment || ''}
                 onChange={handleInputChange}
                 required
                 placeholder="0.00"
@@ -163,8 +165,8 @@ export const DealForm: React.FC<{ onSuccess?: () => void }> = ({ onSuccess }) =>
             <div>
               <label className="block text-sm font-medium text-gray-700">Payment Plan</label>
               <select
-                name="paymentPlan"
-                value={formData.paymentPlan || 'monthly'}
+                name="payment_plan"
+                value={formData.payment_plan || 'monthly'}
                 onChange={handleInputChange}
                 className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg"
               >
@@ -180,11 +182,11 @@ export const DealForm: React.FC<{ onSuccess?: () => void }> = ({ onSuccess }) =>
         {/* Step 4: Review */}
         {step === 4 && (
           <div className="space-y-2 text-sm">
-            <p><strong>Project:</strong> {formData.projectId}</p>
-            <p><strong>Client:</strong> {formData.clientId}</p>
-            <p><strong>Agreement Price:</strong> ${formData.agreementPrice}</p>
-            <p><strong>Down Payment:</strong> ${formData.downPayment}</p>
-            <p><strong>Payment Plan:</strong> {formData.paymentPlan}</p>
+            <p><strong>Project:</strong> {formData.project_id}</p>
+            <p><strong>Client:</strong> {formData.client_id}</p>
+            <p><strong>Agreement Price:</strong> ${formData.agreement_price}</p>
+            <p><strong>Down Payment:</strong> ${formData.down_payment}</p>
+            <p><strong>Payment Plan:</strong> {formData.payment_plan}</p>
           </div>
         )}
 

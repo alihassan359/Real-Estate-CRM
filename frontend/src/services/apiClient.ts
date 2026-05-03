@@ -6,7 +6,7 @@
 import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
 import { useAuthStore } from '@/store/authStore';
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api';
+const API_BASE_URL = 'https://real-estate-crm-production-4d25.up.railway.app/api';
 
 class APIClient {
   private axiosInstance: AxiosInstance;

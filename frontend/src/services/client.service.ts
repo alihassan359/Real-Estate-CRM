@@ -52,3 +52,6 @@ export class ClientService {
   }
 }
 
+// Export instance for compatibility
+export const clientService = ClientService;
+

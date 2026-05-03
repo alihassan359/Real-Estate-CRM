@@ -19,13 +19,13 @@ export default function DashboardPage() {
     {
       icon: FileText,
       label: 'Active Deals',
-      value: deals?.data?.length || 0,
+      value: Array.isArray(deals) ? deals.length : 0,
       color: 'blue',
     },
     {
       icon: DollarSign,
       label: 'Pending Payments',
-      value: payments?.data?.length || 0,
+      value: Array.isArray(payments) ? payments.length : 0,
       color: 'orange',
     },
     {
@@ -82,13 +82,13 @@ export default function DashboardPage() {
             <p className="text-gray-500">Loading...</p>
           ) : (
             <div className="space-y-4">
-              {deals?.data?.slice(0, 3).map((deal: any) => (
+              {Array.isArray(deals) && deals.slice(0, 3).map((deal: any) => (
                 <div key={deal.id} className="flex justify-between items-center pb-4 border-b">
                   <div>
-                    <p className="font-semibold text-gray-900">{deal.dealNumber}</p>
-                    <p className="text-sm text-gray-600">{deal.clientId}</p>
+                    <p className="font-semibold text-gray-900">{deal.deal_number}</p>
+                    <p className="text-sm text-gray-600">{deal.client_id}</p>
                   </div>
-                  <p className="font-semibold text-gray-900">{formatCurrency(deal.agreementPrice)}</p>
+                  <p className="font-semibold text-gray-900">{formatCurrency(deal.agreement_price)}</p>
                 </div>
               ))}
             </div>
@@ -102,7 +102,7 @@ export default function DashboardPage() {
             <p className="text-gray-500">Loading...</p>
           ) : (
             <div className="space-y-4">
-              {payments?.data?.slice(0, 3).map((payment: any) => (
+              {Array.isArray(payments) && payments.slice(0, 3).map((payment: any) => (
                 <div key={payment.id} className="flex justify-between items-center pb-4 border-b">
                   <div>
                     <p className="font-semibold text-gray-900">{payment.paymentNumber}</p>

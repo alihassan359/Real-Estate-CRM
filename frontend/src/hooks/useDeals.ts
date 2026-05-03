@@ -16,7 +16,7 @@ export function useDeals(skip = 0, limit = 10) {
 export function useDealById(id: string) {
   return useQuery({
     queryKey: ['deal', id],
-    queryFn: () => DealService.getDealById(id),
+    queryFn: () => DealService.getDealById(Number(id)),
     enabled: !!id,
   });
 }
@@ -36,7 +36,7 @@ export function useUpdateDeal(id: string) {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: (data) => DealService.updateDeal(id, data),
+    mutationFn: (data: Partial<CreateDealRequest>) => DealService.updateDeal(Number(id), data),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['deal', id] });
       queryClient.invalidateQueries({ queryKey: ['deals'] });
@@ -48,7 +48,7 @@ export function useDeleteDeal() {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: (id: string) => DealService.deleteDeal(id),
+    mutationFn: (id: string) => DealService.deleteDeal(Number(id)),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['deals'] });
     },

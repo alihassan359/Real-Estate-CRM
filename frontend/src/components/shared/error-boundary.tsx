@@ -31,7 +31,7 @@ export class ErrorBoundary extends React.Component<Props, State> {
     console.error('Error caught by boundary:', error);
   }
 
-  render(): ReactElement {
+  render() {
     if (this.state.hasError) {
       return (
         <div className="min-h-screen flex items-center justify-center bg-gray-50">
@@ -52,7 +52,7 @@ export class ErrorBoundary extends React.Component<Props, State> {
       );
     }
 
-    return this.props.children;
+    return this.props.children as ReactElement;
   }
 }
 
