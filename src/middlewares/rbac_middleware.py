@@ -4,7 +4,6 @@ Checks user permissions for protected endpoints
 """
 
 from fastapi import HTTPException, Depends
-from functools import wraps
 from typing import List
 
 from config.permissions import Permission, has_permission, has_any_permission, has_all_permissions
@@ -12,7 +11,7 @@ from middlewares.auth_middleware import get_current_user
 from models.user import User
 
 
-async def check_permission(required_permission: Permission):
+def check_permission(required_permission: Permission):
     """
     Dependency to check if current user has a specific permission
     
@@ -25,13 +24,13 @@ async def check_permission(required_permission: Permission):
         if not has_permission(user.role, required_permission):
             raise HTTPException(
                 status_code=403,
-                detail=f"Missing permission: {required_permission}"
+                detail=f"Missing permission: {required_permission.value}"
             )
         return user
     return verify_permission
 
 
-async def check_any_permission(permissions: List[Permission]):
+def check_any_permission(permissions: List[Permission]):
     """
     Check if user has ANY of the given permissions
     """
@@ -46,7 +45,7 @@ async def check_any_permission(permissions: List[Permission]):
     return verify_permission
 
 
-async def check_all_permissions(permissions: List[Permission]):
+def check_all_permissions(permissions: List[Permission]):
     """
     Check if user has ALL of the given permissions
     """
