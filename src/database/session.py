@@ -40,14 +40,16 @@ def ensure_auth_tables() -> None:
     """Create auth-related support tables if they do not already exist."""
     from models.tenant import Tenant
     from models.user import User
+    from models.refresh_token import RefreshToken
     
     # Create tables in dependency order:
     # 1. Tenant (no dependencies)
     # 2. User (depends on Tenant)
     # 3. UserMFA (depends on User)
+    # 4. RefreshToken (depends on User)
     # checkfirst=True prevents errors when tables/enums already exist
     Base.metadata.create_all(
         bind=engine,
-        tables=[Tenant.__table__, User.__table__, UserMFA.__table__],
+        tables=[Tenant.__table__, User.__table__, UserMFA.__table__, RefreshToken.__table__],
         checkfirst=True
     )

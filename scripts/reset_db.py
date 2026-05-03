@@ -6,16 +6,28 @@ Completely clears the database and reinitializes all tables
 
 import os
 import sys
+from pathlib import Path
+
+# Add src to path - handle running from different directories
+script_dir = Path(__file__).parent
+project_root = script_dir.parent
+src_dir = project_root / "src"
+
+# Ensure src is in the path
+if str(src_dir) not in sys.path:
+    sys.path.insert(0, str(src_dir))
+
+# Change to project root
+os.chdir(project_root)
+
 from sqlalchemy import create_engine, inspect, text
 from sqlalchemy.orm import sessionmaker
-
-# Add src to path
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 
 from models.base import Base
 from models.tenant import Tenant
 from models.user import User
 from models.user_mfa import UserMFA
+from models.refresh_token import RefreshToken
 import models  # noqa: F401 - Import all models to register them
 
 # Database URL from environment or provided as argument
@@ -73,7 +85,7 @@ def create_all_tables(engine):
     print("\nCreating tables...")
     Base.metadata.create_all(
         bind=engine,
-        tables=[Tenant.__table__, User.__table__, UserMFA.__table__],
+        tables=[Tenant.__table__, User.__table__, UserMFA.__table__, RefreshToken.__table__],
         checkfirst=False
     )
     print("✓ All tables created successfully")
