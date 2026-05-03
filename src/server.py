@@ -40,7 +40,37 @@ def create_app() -> FastAPI:
         redoc_url="/redoc",
         openapi_url="/openapi.json",
         lifespan=lifespan,
+        swagger_ui_parameters={"persistAuthorization": True},
     )
+    
+    # Configure OpenAPI security scheme
+    app.openapi_schema = None
+    
+    def get_openapi_schema():
+        if app.openapi_schema:
+            return app.openapi_schema
+        
+        from fastapi.openapi.utils import get_openapi
+        openapi_schema = get_openapi(
+            title=settings.PROJECT_NAME,
+            version=settings.VERSION,
+            description="Real Estate CRM API - Complete property management system",
+            routes=app.routes,
+        )
+        
+        # Add Bearer token security scheme
+        openapi_schema["components"]["securitySchemes"] = {
+            "HTTPBearer": {
+                "type": "http",
+                "scheme": "bearer",
+                "description": "JWT token for authentication",
+            }
+        }
+        
+        app.openapi_schema = openapi_schema
+        return app.openapi_schema
+    
+    app.openapi = get_openapi_schema
     
     # Add CORS middleware
     app.add_middleware(
