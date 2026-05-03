@@ -45,7 +45,9 @@ def ensure_auth_tables() -> None:
     # 1. Tenant (no dependencies)
     # 2. User (depends on Tenant)
     # 3. UserMFA (depends on User)
+    # checkfirst=True prevents errors when tables/enums already exist
     Base.metadata.create_all(
         bind=engine,
-        tables=[Tenant.__table__, User.__table__, UserMFA.__table__]
+        tables=[Tenant.__table__, User.__table__, UserMFA.__table__],
+        checkfirst=True
     )
